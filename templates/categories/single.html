@@ -1,21 +1,19 @@
-{% extends "base.html" %}
-
-{% block title %}
+{% extends "base.html" %} {% block title %}
 <title>{{ term.name }} | {{ config.title }}</title>
-{% endblock %}
-
-{% block content %}
-<p class="archive_title">[Category: {{ term.name }}]</p>
+{% endblock %} {% block content %}
+<div class="prefix">
+  <div class="title">
+    [Category: {{ term.name }}]
+  </div>
+</div>
 
 {% for page in term.pages %}
 <p>
-  <div class="date">
+  <div>
     {{ page.date }}
   </div>
-  <div class="archive_title">
+  <div>
     <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
   </div>
 </p>
-{% endfor %}
-
-{% endblock content %}
+{% endfor %} {% endblock content %}

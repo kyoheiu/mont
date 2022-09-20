@@ -1,18 +1,14 @@
-{% extends "base.html" %}
-
-{% block title %}
+{% extends "base.html" %} {% block title %}
 <title>Categories</title>
-{% endblock %}
-
-{% block content %}
-<p class="archive_title">[Categories]</p>
+{% endblock %} {% block content %}
+<p class="prefix">[Categories]</p>
 
 <ul>
   {% for term in terms %}
-    <li>
-      <a href="{{ term.permalink }}">/{{ term.name }}</a>
-      ({{ term.pages | length }})
-    </li>
+  <li>
+    <a href="{{ term.permalink }}">/{{ term.name }}</a>
+    ({{ term.pages | length }})
+  </li>
   {% endfor %}
 </ul>
 {% endblock content %}

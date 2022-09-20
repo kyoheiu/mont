@@ -19,9 +19,10 @@
       <a href="/">{{ config.title }}</a>
     </div>
     <div class="menu">
-      <a href="/post">>archives</a>
-      &nbsp;<a href="/about">>about</a>
+      <a href="/posts">› archives</a>
+      &nbsp;<a href="/about">› about</a>
     </div>
+    <hr class="break" />
   </div>
 
   <body onload="getTheme()">
@@ -33,6 +34,23 @@
   </body>
 
   <div class="footer">
-    Written by {{ config.extra.mont_author }} / &#9968;mont theme&#9968;
+    author: {{ config.extra.mont_author }} | theme:
+    <a href="https://github.com/kyoheiu/mont">mont</a>&#9968;
   </div>
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ["$", "$"],
+          ["\\(", "\\)"],
+        ],
+      },
+    };
+  </script>
+  <script
+    type="text/javascript"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  ></script>
 </html>

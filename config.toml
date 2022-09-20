@@ -64,5 +64,3 @@ mont_author = "author name"
 # Path to the header favicon image.
 # Save image to static/images
 mont_favicon = "/images/favicon.png"
-
-mont_number = 10

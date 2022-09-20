@@ -2,60 +2,53 @@
 
 {% block content %}
 
-{% set section = get_section(path="post/_index.md") %}
-{% for post in section.pages %}
-    <p>
-      <div class="prefix">
-       <div class="date">
-        {{ post.date }}
-      </div>
-      <div class="title">
-        <a href="{{ post.permalink }}">{{ post.title }}</a>
-      </div>
-      <div class="taxonomies_index">
-          {% if post.taxonomies.categories %}
-              {% for category in post.taxonomies.categories %}
-              <a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a> 
-              {% endfor %}
-          &nbsp;
-          {% endif %}
-          {% if post.taxonomies.tags %}
-              {% for tag in post.taxonomies.tags %}
-              <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>&thinsp;
-              {% endfor %}
-          {% endif %}
-      </div>      
-    </div>
-    <div>
-    {{ post.content | safe }}
-    </div>
-    <div class="info">
-      <a href="{{ post.permalink }}">permalink &#128279;</a>
-    </div>
-    <hr class="break">
-    </p>
-    
-{% if loop.index == config.extra.mont_number %}{% break %}{% endif %}
-{% endfor %}
+  {% for post in paginator.pages %}
 
-<nav class="pagination">
+      <p class="contents">
+        <div class="prefix">
+          <div class="date">
+            {{ post.date }}
+          </div>
+          <div class="title">
+            <a href="{{ post.permalink }}">{{ post.title }}</a>
+          </div>
+          <div class="taxonomies_index">
+            {% if post.taxonomies.categories %}
+              {% for category in post.taxonomies.categories %}
+                <a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a> 
+              {% endfor %}
+              &nbsp;
+            {% endif %}
+            {% if post.taxonomies.tags %}
+              {% for tag in post.taxonomies.tags %}
+                <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>&thinsp;
+              {% endfor %}
+            {% endif %}
+          </div>      
+        </div>
+        <div>
+          {{ post.content | safe }}
+        </div>
+        <div class="info">
+          <a href="{{ post.permalink }}">[permalink &#128279;]</a>
+        </div>
+        {% if not loop.last %}
+          <hr class="break">
+        {% endif %}
+      </p>
+      
+  {% endfor %}
+
+  <nav class="pagination">
     {% if paginator.previous %}
-        <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+      <a class="previous" href="{{ paginator.previous }}">‹ Prev</a>
+    {% endif %}
+    {% if paginator.previous and paginator.next %}
+      &thinsp;
     {% endif %}
     {% if paginator.next %}
-        <a class="next" href="{{ paginator.next }}">Next ›</a>
+      <a class="next" href="{{ paginator.next }}">Next ›</a>
     {% endif %}
-</nav>
-
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
-</script>
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
+  </nav>
 
 {% endblock content %}

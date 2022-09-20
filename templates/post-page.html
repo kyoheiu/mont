@@ -1,47 +1,34 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>{{ page.title }} | {{ config.title }}</title>
+  <title>{{ page.title }} | {{ config.title }}</title>
 {% endblock %}
 
 {% block content %}
-<p>
-      <div class="prefix">
-       <div class="date">
+  <p class="contents">
+    <div class="prefix">
+      <div class="date">
         {{ page.date }}
       </div>
       <div class="title">
         <a href="{{ page.permalink }}">{{ page.title }}</a>
       </div>
       <div class="taxonomies_index">
-          {% if page.taxonomies.categories %}
-              {% for category in page.taxonomies.categories %}
-              &emsp;<a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a>
-              {% endfor %}
+        {% if page.taxonomies.categories %}
+          {% for category in page.taxonomies.categories %}
+            <a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a> 
+            {% endfor %}
+            &nbsp;
           {% endif %}
-          {% if page.taxonomies.tags %}
-              {% for tag in page.taxonomies.tags %}
-              &emsp;<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
-              {% endfor %}
-          {% endif %}
+        {% if page.taxonomies.tags %}
+          {% for tag in page.taxonomies.tags %}
+            <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>&thinsp;
+          {% endfor %}
+        {% endif %}
       </div>      
     </div>
-    </p>
-<p>
-  {{ page.content | safe }}
-</p>
-
-{% if page.extra.math %}
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
-</script>
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
-{% endif %}
-
+    <div>
+      {{ page.content | safe }}
+    </div>
+  </p>
 {% endblock content %}

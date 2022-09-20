@@ -1,13 +1,13 @@
-# emily_zola_theme
+# mont
 
-![screenshot01](static/images/ss01.png)
+A simple blog theme for Zola.
 
-
-A KISS theme for Zola (static site generator written in Rust). 
+![screenshot01](screenshot.png)
 
 Features:
+
 - simple & clean
-- mobile-friendly
+- 10 articles (paginated) in `index.html` so that you don't need to click the article title.
 - MathJax support
 
 Demo site is [here](https://emily-zola-theme.netlify.app/).
@@ -16,37 +16,16 @@ Demo site is [here](https://emily-zola-theme.netlify.app/).
 
 ```
 cd YOUR_SITE_DIRECTORY/themes
-git clone https://github.com/kyoheiu/emily_zola_theme.git
+git clone https://github.com/kyoheiu/mont.git
 ```
 
-and set the theme-name in `config.toml` to `emily_zola_theme`.
+and set the theme-name in `config.toml` to `mont`.
 
 ```
-theme = "emily_zola_theme"
-```
-
-## example articles
-
-In `YOUR_SITE_DIRECTORY/themes/emily_zola_theme/content`.
-
-## MathJax support
-
-![screenshot03](static/images/ss02.png)
-
-To use MathJax, add the following lines to the front matter in `.md` file. `[extra]` is mandatory:
-
-```
-[extra]
-math = true
+theme = "mont"
 ```
 
 ## How to customize
-In addition to default values, you can customize following parts easily:
 
-- author name (appears in footer)
-- header icon (appears in header)
-- favicon
-- header icon size (default width: 70px)
-- number of posts in `index.html` (default 5)
-
-Set your own in `themes/emily_zola_theme/theme.toml`, or to overwrite, copy `[extra]` block, paste it into your `config.toml` and edit.
+- Pagination: Change the number of `paginate_by` in `posts/_index.md`. Default is 10.
+- Horizontal rule mark: Change `mark` variable in `sass/main.scss`. Default is `➳`.

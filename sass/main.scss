@@ -3,6 +3,8 @@ $yellow: #cc9966;
 $red: #f43753;
 $magenta: #d3b987;
 $green: #56887d;
+// mark on the horizontal rule
+$mark: "➳";
 
 $backgroundcolor: #f5f5dc;
 $codebackgroundcolor: #fff;
@@ -14,11 +16,11 @@ body {
   color: $textcolor;
   background-color: $backgroundcolor;
   width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   min-width: 200px;
   max-width: 720px;
-  margin: 0 auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
 
   img,
   video {
@@ -44,14 +46,23 @@ body {
 
 .header {
   color: $lighttextcolor;
-  background-color: $backgroundcolor;
-  top: 0;
-  padding-bottom: 5px;
-  border-bottom: solid 1px $green;
-  overflow: hidden;
   a {
     color: $lighttextcolor;
   }
+}
+
+.footer {
+  color: $lighttextcolor;
+  text-align: right;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: solid 1px $green;
+  a {
+    color: $lighttextcolor;
+  }
+}
+
+.contents {
 }
 
 .button_no_decoration {
@@ -82,7 +93,7 @@ body {
 
 .prefix {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 2rem;
 }
 
 .date {
@@ -96,7 +107,6 @@ body {
 }
 
 .archive_title {
-  font-size: 1.3rem;
   a {
     text-decoration: none;
   }
@@ -121,17 +131,6 @@ body {
 .taxonomies_list {
   a {
     text-decoration: none;
-  }
-}
-
-.footer {
-  color: $lighttextcolor;
-  text-align: right;
-  margin-top: 50px;
-  padding-top: 0px;
-  // border-top: solid 1px $tender-blue;
-  a {
-    color: $lighttextcolor;
   }
 }
 
@@ -177,6 +176,7 @@ pre {
 
 :not(pre) > code {
   background-color: $codebackgroundcolor;
+  font-size: large;
 }
 
 blockquote {
@@ -215,20 +215,30 @@ button {
   border: 0;
   border-top: 4px double #8c8c8c;
   text-align: center;
-  margin: 100px 0px 0px 0px;
 }
 .break:after {
-  content: "\2665";
+  content: $mark;
   display: inline-block;
   position: relative;
-  top: -15px;
+  top: -0.9rem;
   padding: 0 10px;
   background: $backgroundcolor;
   color: #8c8c8c;
-  font-size: 18px;
 }
 
 .info {
+  padding-top: 1rem;
+  margin-bottom: 2rem;
   text-align: right;
-  margin-top: 60px;
+}
+
+.pagination {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.caption {
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
 }
