@@ -6,24 +6,27 @@
 
 {% block content %}
 <p>
-  <div class="title_postpage">{{ page.title }}</div>
-</p>
-<p>
-  <div class="date_postpage">{{ page.date }}</div>
-  <div class="taxonomies_postpage">
-  {% if page.taxonomies.categories %}
-      {% for category in page.taxonomies.categories %}
-      <a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a>
-      {% endfor %}
-  {% endif %}
-  {% if page.taxonomies.tags %}
-      {% for tag in page.taxonomies.tags %}
-      &emsp;<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
-      {% endfor %}
-  {% endif %}
-  </div>
-</p>
-
+      <div class="prefix">
+       <div class="date">
+        {{ page.date }}
+      </div>
+      <div class="title">
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+      </div>
+      <div class="taxonomies_index">
+          {% if page.taxonomies.categories %}
+              {% for category in page.taxonomies.categories %}
+              &emsp;<a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a>
+              {% endfor %}
+          {% endif %}
+          {% if page.taxonomies.tags %}
+              {% for tag in page.taxonomies.tags %}
+              &emsp;<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
+              {% endfor %}
+          {% endif %}
+      </div>      
+    </div>
+    </p>
 <p>
   {{ page.content | safe }}
 </p>

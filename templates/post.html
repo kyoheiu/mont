@@ -23,6 +23,7 @@
 </ul>
 </p>
 
+{% set section = get_section(path="post/_index.md") %}
 {% for year, posts in section.pages | group_by(attribute="year") %}
     <h3>{{ year }}</h3>
 
@@ -31,7 +32,7 @@
       <div class="date">
         {{ post.date }}
       </div>
-      <div class="archive_title">
+      <div class="title">
         <a href="{{ post.permalink }}">{{ post.title }}</a>
       </div>
       <div class="taxonomies_index">

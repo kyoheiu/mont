@@ -59,23 +59,10 @@ include_content = false
 
 [extra]
 # Author name, appears in footer.
-emily_author = "author name"
+mont_author = "author name"
 
-# Path to the header icon / favicon image.
-# Please save image to static/images
-emily_icon = "/images/logo.png"
+# Path to the header favicon image.
+# Save image to static/images
+mont_favicon = "/images/favicon.png"
 
-emily_favicon = "/images/favicon.png"
-
-# header icon width.
-# height will be automatically rendered.
-emily_iconsize = 70
-
-# number of posts in index.html.
-emily_indexposts = 5
-
-# switch to dark-theme
-emily_dark_mode = true
-
-# show theme-toggler
-emily_theme_toggler = true
+mont_number = 10
