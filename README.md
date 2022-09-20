@@ -10,8 +10,6 @@ Features:
 - 10 articles (paginated) in `index.html` so that you don't need to click the article title.
 - MathJax support
 
-Demo site is [here](https://emily-zola-theme.netlify.app/).
-
 ## Usage
 
 ```
