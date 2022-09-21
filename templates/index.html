@@ -6,7 +6,7 @@
 
       <p class="contents">
         <div class="prefix">
-          <div class="date">
+          <div>
             {{ post.date }}
           </div>
           <div class="title">
@@ -30,7 +30,7 @@
           {{ post.content | safe }}
         </div>
         <div class="info">
-          <a href="{{ post.permalink }}">[permalink &#128279;]</a>
+          [<a href="{{ post.permalink }}">permalink &#128279;</a>]
         </div>
         {% if not loop.last %}
           <hr class="break">

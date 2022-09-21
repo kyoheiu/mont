@@ -96,11 +96,10 @@ body {
   margin-bottom: 2rem;
 }
 
-.date {
-}
-
 .title {
   font-size: 1.4rem;
+  margin: auto;
+  width: 90%;
   a {
     text-decoration: none;
   }
@@ -230,6 +229,11 @@ button {
   padding-top: 1rem;
   margin-bottom: 2rem;
   text-align: right;
+  font-size: small;
+  color: $lighttextcolor;
+  a {
+    color: $lighttextcolor;
+  }
 }
 
 .pagination {
